@@ -1,0 +1,16 @@
+<root>
+    <clients>
+        <client name="Test_1">
+            <messages>
+                <message>"XYZ"</message>
+            </messages>
+        </client>
+        <client name="Test_2">
+            <messages>
+                <message>"ABC"</message>
+            </messages>
+        </client>
+        <client name="Test_3">
+        </client>
+    </clients>
+</root>
