@@ -2,6 +2,9 @@ import csv
 import xml.etree.ElementTree as ET
 import argparse
 
+
+output_title = 'output.xml'
+
 def arguments():
     parser = argparse.ArgumentParser(description='robimy output.xml')
     parser.add_argument('plik_csv', metavar='path',type=str, help='podaj sciezke do pliku CSV')
@@ -9,6 +12,10 @@ def arguments():
     args = parser.parse_args()
     input_path_csv = args.plik_csv
     input_path_xml = args.plik_xml
+    if not '.csv' in input_path_csv:
+        raise TypeError("csv path should be csv extension")
+    if not '.xml' in input_path_xml:
+        raise TypeError("xml path should be xml extension")
     return input_path_xml, input_path_csv
 
 
@@ -36,7 +43,8 @@ def get_outputxml(input_path_xml,input_path_csv):
             message = ET.Element("message")
             message.text = 'huj huj'
             messages.append(message)
-    tree.write('output.xml')
+
+    tree.write(output_title)
 
 if __name__ == "__main__":
     input_path_xml, input_path_csv = arguments()
